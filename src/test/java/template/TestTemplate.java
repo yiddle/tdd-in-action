@@ -36,11 +36,12 @@ class TestTemplate {
 
   @Test
   void multipleVariables() {
-    Template template = new Template(("{one} {two} {three}"));
+    Template template = new Template(("${one} ${two} ${three}"));
     template.set("one", "1");
     template.set("two", "2");
     template.set("three", "3");
     assertThat(template.evaluate()).isEqualTo("1 2 3");
+//    assertThat("${one}".replaceAll("\\$\\{one}", "1")).isEqualTo("1");
   }
 
 }
